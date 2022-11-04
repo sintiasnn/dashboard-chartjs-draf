@@ -14,16 +14,30 @@
   
 <script type="text/javascript">
   
-      const labels =  {!! json_encode($labels) !!};
-      const values =  {!! json_encode($values) !!};
+      const labels = ['Puas','Sangat Puas','Kurang Puas'];
+      const a1 =  {!! json_encode($values_a1) !!};
+      const a2 =  {!! json_encode($values_a2) !!};
+      const a4 =  {!! json_encode($values_a4) !!};
   
       const data = {
         labels: labels,
         datasets: [{
-          label: 'My First dataset',
+          label: 'A1',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
-          data: values,
+          data: a1,
+        },
+        {
+          label: 'A2',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: a2,
+        },
+        {
+          label: 'A4',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: a4,
         }]
       };
   
