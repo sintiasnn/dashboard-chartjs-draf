@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 9 ChartJS Chart Example - ItSolutionStuff.com</title>
+    <title>charts</title>
 </head>
     
 <body>
-    <h1>Laravel 9 ChartJS Chart Example - ItSolutionStuff.com</h1>
+    <h1>charts</h1>
     <canvas id="myChart" height="100px"></canvas>
 </body>
   
@@ -14,8 +14,8 @@
   
 <script type="text/javascript">
   
-      const labels =  {{ Js::from($labels) }};
-      const data =  {{ Js::from($data) }};
+      const labels =  {!! json_encode($labels) !!};
+      const values =  {!! json_encode($values) !!};
   
       const data = {
         labels: labels,
@@ -23,7 +23,7 @@
           label: 'My First dataset',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
-          data: data,
+          data: values,
         }]
       };
   
@@ -33,7 +33,7 @@
         options: {
             y: {
                 beginAtZero: true
-        }
+            }
         }
       };
   

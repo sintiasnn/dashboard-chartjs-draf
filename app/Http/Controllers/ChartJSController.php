@@ -17,12 +17,13 @@ class ChartJSController extends Controller
     {
         //SELECT tabel_a.ikp_a1, COUNT(tabel_a.ikp_a1) as jumlah FROM tabel_a GROUP BY tabel_a.ikp_a1;
         $a1 = DB::table('tabel_a')
-                ->selectRaw('ikp_a1 as indeks','count(ikp_a1) as jumlah')
-                ->groupBy('ikp_a1');
+                ->selectRaw('count(ikp_a1) as jumlah')
+                ->groupBy('ikp_a1')
+                ->get()->toArray();
         
-        $labels = $a1->keys();
-        $data = $a1->values();
+        $labels = ['Puas','Sangat Puas','Tidak Puas'];
+        $values = array_column($a1, 'jumlah');
               
-        return view('chartjs', compact('labels', 'data'));
+        return view('chartjs', compact('labels', 'values'));
     }
 }
