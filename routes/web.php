@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('chart', [ChartJSController::class, 'index']);
+Route::get('chart', [ChartJSController::class, 'a1']);
 
 //Route::get('/chart', function () {
    // return view('chartjs');
