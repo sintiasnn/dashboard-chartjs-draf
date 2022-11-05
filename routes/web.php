@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-  
-use App\Http\Controllers\ChartJSController;
+use App\Http\Controllers\ChartJSControllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('chart', [ChartJSController::class, 'indeks_a']);
+Auth::routes();
 
-//Route::get('/chart', function () {
-   // return view('chartjs');
-//});
+Route::get('home', [HomeController::class, 'index']);
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::put('/profile', 'ProfileController@update')->name('profile.update');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
+Route::get('chart', [ChartJSController::class, 'indeks_a']);
